@@ -94,3 +94,25 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
+/* General Button Style */
+.btn {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 15px 30px;          /* bigger size */
+  background: #4CAF50;         /* green background */
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;           /* slightly larger text */
+  border-radius: 8px;          /* rounder edges */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Hover Effect */
+.btn:hover {
+  background: #45a049;          /* darker green */
+  transform: translateY(-4px);  /* slightly lift */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
