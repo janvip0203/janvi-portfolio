@@ -1,6 +1,12 @@
-console.log("Portfolio loaded successfully!");
+// Animate sections when they come into view
+const sections = document.querySelectorAll("section");
 
-// Example: Show an alert when page loads
-window.onload = () => {
-  console.log("Welcome to Janvi's Portfolio!");
-};
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+},{ threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
