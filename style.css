@@ -2,21 +2,31 @@
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
+  background: #f9f9f9; /* light grey background */
+  color: #333;          /* dark grey text */
   margin: 0;
   padding: 0;
+  transition: all 0.4s ease;
 }
 
 header {
-  background: #4CAF50;
-  color: white;
+  background: #B0BEC5;  /* pastel grey header */
+  color: #212121;       /* dark text */
   text-align: center;
   padding: 20px 0;
 }
 
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
 header nav a {
-  color: white;
+  color: #212121;       /* dark grey links */
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
@@ -24,7 +34,21 @@ header nav a {
 }
 
 header nav a:hover {
-  color: #e0e0e0;
+  color: #455A64;       /* slightly darker grey on hover */
+}
+
+/* Dark Mode Button */
+.dark-mode-btn {
+  background: none;
+  border: none;
+  color: #212121;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.2);
 }
 
 /* Sections */
@@ -34,7 +58,7 @@ section {
   padding: 0 20px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.4s ease, color 0.4s ease;
 }
 
 section.visible {
@@ -43,7 +67,7 @@ section.visible {
 }
 
 h2 {
-  color: #4CAF50;
+  color: #607D8B;       /* muted blue-grey for headings */
 }
 
 /* Projects */
@@ -53,6 +77,7 @@ h2 {
   margin: 15px 0;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Social Buttons */
@@ -61,33 +86,65 @@ h2 {
 }
 
 .social-links .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   margin: 5px;
-  padding: 10px 20px;
-  background: #4CAF50;
-  color: white;
+  padding: 12px 25px;
+  background: #CFD8DC;  /* pastel grey button */
+  color: #212121;       /* dark text */
   font-weight: bold;
-  border-radius: 5px;
+  font-size: 1.1rem;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .social-links .btn:hover {
-  background: #45a049;
+  background: #B0BEC5;  /* slightly darker grey */
   transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .social-links .btn i {
-  margin-right: 8px;
+  font-size: 1.1rem;
+}
+
+/* Resume Button - Contrasting Pastel Greenish */
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 15px 5px;
+  padding: 15px 35px;
+  background: #90A4AE;  /* pastel green-grey */
+  color: #FFFFFF;       /* white text */
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.resume-btn:hover {
+  background: #78909C;  /* slightly darker on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.resume-btn i {
+  font-size: 1.2rem;
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 15px 0;
-  background: #333;
-  color: white;
+  background: #B0BEC5;   /* pastel grey footer */
+  color: #212121;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Smooth Scroll */
@@ -95,24 +152,45 @@ html {
   scroll-behavior: smooth;
 }
 
-/* General Button Style */
-.btn {
-  display: inline-block;
-  margin: 10px 5px;
-  padding: 15px 30px;          /* bigger size */
-  background: #4CAF50;         /* green background */
-  color: white;
-  font-weight: bold;
-  font-size: 1.1rem;           /* slightly larger text */
-  border-radius: 8px;          /* rounder edges */
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #ddd;
 }
 
-/* Hover Effect */
-.btn:hover {
-  background: #45a049;          /* darker green */
-  transform: translateY(-4px);  /* slightly lift */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+body.dark-mode header {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+body.dark-mode nav a {
+  color: #ddd;
+}
+
+body.dark-mode .dark-mode-btn {
+  color: #fff;
+}
+
+body.dark-mode section {
+  background-color: #2a2a2a;
+  color: #ddd;
+}
+
+body.dark-mode .project {
+  background-color: #3a3a3a;
+  color: #ddd;
+}
+
+body.dark-mode footer {
+  background-color: #222;
+  color: #ccc;
+}
+
+body.dark-mode .btn {
+  background-color: #555;
+  color: #fff;
+}
+
+body.dark-mode .btn:hover {
+  background-color: #666;
 }
